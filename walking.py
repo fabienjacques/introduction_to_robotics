@@ -161,7 +161,7 @@ if __name__ == '__main__':
         coords = [coords1, coords2, coords3, coords4, coords5, coords6]
 
         p = 0.2
-        while(True):
+        while(currentTime - beginingTime < 30):
             coords = moveUp135(30, 0, 10, p, coords, dxl_io)
             coords = moveUp246(30, 0, 10, p, coords, dxl_io)
             

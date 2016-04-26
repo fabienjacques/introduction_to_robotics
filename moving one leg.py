@@ -155,8 +155,6 @@ if __name__ == '__main__':
         
         time.sleep(2)  # we wait for 1s
 
-        currentTime = time.time()
-        beginingTime = currentTime
 
         coords = [coords1, coords2, coords3, coords4, coords5, coords6]
 

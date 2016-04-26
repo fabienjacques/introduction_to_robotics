@@ -167,7 +167,7 @@ if __name__ == '__main__':
         coords = [coords1, coords2, coords3, coords4, coords5, coords6]
 
         p = 1
-        while(True):
+        while(currentTime - beginingTime < 30):
             coords = moveUp135(math.pi/12, 10, p, coords)
             coords = moveUp246(math.pi/12, 10, p, coords)
             
