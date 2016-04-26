@@ -1,4 +1,3 @@
-
 import itertools
 import time
 import numpy
@@ -95,7 +94,7 @@ def circle(coords, p, q, r):
             print(math.cos( (2*math.pi*i)/q )*30, math.sin( (2*math.pi*i)/q )*30)
 
 
-def test():
+if __name__ == '__main__':
 
     # we first open the Dynamixel serial port
     with pypot.dynamixel.DxlIO('/dev/ttyUSB0', baudrate=1000000) as dxl_io:
