@@ -140,18 +140,22 @@ with pypot.dynamixel.DxlIO('/dev/ttyUSB0', baudrate=1000000) as dxl_io:
         elif axis[2] != 0 or axis[4] != 0:
             X = -axis[2]
             Y = -axis[4]
-            coords = center(-30*(X - lastX), 30*(Y - lastY), 0.05, coords, dxl_io)
+            coords = center(-30*(X - lastX), 30*(Y - lastY), 0.1, coords, dxl_io)
             lastX = X
             lastY = Y
             
         elif (axis[2] == 0 and axis[4] == 0) and (lastX != 0 or lastY != 0):
             X = 0
             Y = 0
-            coords = center(-30*(X - lastX), 30*(Y - lastY), 0.05, coords, dxl_io)
+            coords = center(-30*(X - lastX), 30*(Y - lastY), 0.1, coords, dxl_io)
             lastX = X
             lastY = Y
+        
+        #Turning    
+        elif axis[3] != 0:
+            coords = turn((math.pi/12) * axis[3], 20, 0.2, coords, dxl_io)
         #Reinitialising position
-        elif button[8]:
+        else:
             coords1 = [100, 0, -100]
             coords2 = [70, 65, -100]
             coords3 = [70, -65, -100]
@@ -182,10 +186,9 @@ with pypot.dynamixel.DxlIO('/dev/ttyUSB0', baudrate=1000000) as dxl_io:
             dxl_io.set_goal_position(pos4)
             dxl_io.set_goal_position(pos5)
             dxl_io.set_goal_position(pos6)
-        #Turning    
-        elif axis[3] != 0:
-            coords = turn((math.pi/12) * axis[3], 20, 0.2, coords, dxl_io)
+
             coords = [coords1, coords2, coords3, coords4, coords5, coords6]
+            
             
 
 
